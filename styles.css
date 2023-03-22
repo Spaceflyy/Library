@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+}
+
+.mainContent
+{
+    display:flex;
+    flex-direction: column;
+    height: 100vh;
+    border: palevioletred 2px solid;
+}
+
+.bookContainer{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap:1rem;
+}
+
+.bookCard
+{
+    margin:1rem;
+    background-color:purple;
+    width: 200px;
+    height: 300px;
+    border-radius: 10px;
+}
+
+.header
+{
+    height:100px;
+    background-color: red;
+}
+.footer
+{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height:50px;
+    background-color: orange;
+}
+
+.bookContainer
+{
+    height:100%;
+    background-color: rgb(192, 255, 213);
+}
