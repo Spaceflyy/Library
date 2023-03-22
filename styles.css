@@ -1,4 +1,10 @@
+:root
+{
+    --padding-margin: 1rem;
+}
+
 *{
+
     margin: 0;
     padding: 0;
     box-sizing:border-box;
@@ -12,15 +18,45 @@
     border: palevioletred 2px solid;
 }
 
+.addBookForm
+{
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    margin: auto;
+    background-color: olivedrab;
+    border-radius: 20px;
+    width: 300px;
+    height:400px;
+}
+
+.addBookForm form 
+{
+    display: flex;
+    padding:var(--padding-margin);
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-evenly;
+    height:100%;
+    width:100%;
+}
+
+.addBookForm label, input
+{
+    display:block;
+}
+
 .bookContainer{
     display:grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap:1rem;
+    gap:var(--padding-margin);
 }
 
 .bookCard
 {
-    margin:1rem;
+    margin:var(--padding-margin);
     background-color:purple;
     width: 200px;
     height: 300px;
