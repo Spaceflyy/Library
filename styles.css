@@ -42,7 +42,10 @@
     height:100%;
     width:100%;
 }
-
+#subLabel, input#read
+{
+    display:inline-block;
+}
 .addBookForm label, input
 {
     display:block;
@@ -54,13 +57,36 @@
     gap:var(--padding-margin);
 }
 
-.bookCard
+.bookCard, .addBookBtn
 {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding:2.5rem;
+    align-items: center;
     margin:var(--padding-margin);
     background-color:purple;
     width: 200px;
     height: 300px;
     border-radius: 10px;
+}
+
+.addBookBtn 
+{
+    justify-content: space-around;
+}
+
+.addBookBtn:hover
+{
+    transition: 0.2s;
+   transform: scale(1.1);
+
+}
+
+.addBookBtn img
+{
+    height: 125px;
+    width: auto;
 }
 
 .header
