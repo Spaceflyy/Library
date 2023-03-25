@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles.css">
+
     <title>Library</title>
 </head>
 <body>
     <div class="mainContent">
         <div class = header><h1>Library</h1></div>
         <div class="addBookForm">
-
             <form id = "myForm" action="#" method="post">
+                <div id="closeBtn">
+                    <img class = "icon" src="./icons/close.svg" alt="close icon">
+                </div>
                 <h2>Add a new Book.</h2>
                 <label for="title">Title:
                     <input type="text" id = "title">
@@ -32,10 +34,17 @@
             </form>
         </div>
         <div class = bookContainer>
-            <div class="addBookBtn"><img src="./icons/add.svg" alt="Add Book"></div>
+            <div class="addBookBtn"><img  src="./icons/add.svg" alt="Add Book"></div>
+            <div class="bookCard" data = "0">
+                <div id="closeBtnCard">
+                    <img class = "icon" src="./icons/close.svg" alt="close icon">
+                </div>
+                <h2>The hobbit</h2><p>J.R.R. Tolkien</p><p>300</p><p>Read</p></div>
         </div>
         <div class = footer><a href = https://github.com/spaceflyy>&copy www.github.com/spaceflyy</a></div>
     </div>
+    <link rel="stylesheet" href="./styles.css">
     <script src="./main.js"></script>
+    
 </body>
 </html>
