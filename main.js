@@ -3,7 +3,7 @@ let form =  document.getElementById("myForm");
 let appendTo = document.querySelector(".bookContainer");
 let bookbtn = document.querySelector(".addBookBtn");
 let addForm = document.querySelector(".addBookForm");
-let closeBtn = document.querySelector("#closeBtn");
+let closeBtn = document.querySelector("#closeBtn .icon");
 
 submitButton.addEventListener("click", () => addBookToLibrary());
 bookbtn.addEventListener("click", () => showAddMenu())
@@ -88,7 +88,7 @@ function createCard(book)
     newBook.setAttribute("data", myLibrary.indexOf(book));
     appendTo.appendChild(newBook);  
 
-    closeBtnParent.addEventListener("click",deleteCard);
+    closeBtn.addEventListener("click",deleteCard);
 
 
 
