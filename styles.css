@@ -33,7 +33,7 @@
     height:400px;
 }
 
-#closeBtn, #closeBtnCard
+#closeBtn
 {
     width: 100%;
     display:flex;
@@ -41,16 +41,17 @@
     padding-right: 0.5rem;
 }
 
-#closeBtnCard
-{
-    margin-bottom: -1.5rem;
-}
 
-.icon
+.icon 
 {
     width:32px;
     height:auto;
     cursor: pointer;
+}
+
+.bookCard .icon
+{
+    width:24px;
 }
 
 .addBookForm form 
@@ -79,8 +80,8 @@
 {
     display:flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
+    justify-content: space-around;
     margin:var(--padding-margin);
     background-color:purple;
     width: 200px;
@@ -88,16 +89,16 @@
     border-radius: 10px;
 }
 
-.addBookBtn 
+.addBookBtn
 {
-    justify-content: space-around;
+    justify-content: center;
 }
 
-.addBookBtn:hover
+.addBookBtn:hover, .header button:hover
 {
     transition: 0.2s;
-   transform: scale(1.1);
-   cursor: pointer;
+    transform: scale(1.1);
+    cursor: pointer;
 
 }
 
@@ -107,11 +108,40 @@
     width: auto;
 }
 
+
+
 .header
 {
+    display: flex;
+    align-items: center;
     height:100px;
     background-color: red;
 }
+
+.header button
+{
+    width: 100px;
+    height: 40px;
+    font-weight: 700;
+    color: white;
+    font-size: 1rem;
+    border-radius: 7px;
+    border: none;
+    background-color: #1B98E0;
+}
+
+.header #addBtnContainer
+{
+    margin:0rem 4rem 0rem 0rem;
+}
+
+.header #titleContainer 
+{
+    flex:1;
+    margin:0rem 0rem 0rem 4rem;
+}
+
+
 .footer
 {
     display:flex;
