@@ -115,7 +115,28 @@ function createCard(book)
         {
              bookInfo = document.createElement("p");
         }
-        bookInfo.innerHTML =  `${value}`;
+
+        switch (key)
+        {
+            case "author":
+                {
+                    bookInfo.innerHTML =  `By ${value}`;
+                    break;
+                }
+
+            case "pages":
+                {
+                    bookInfo.innerHTML =  ` ${value} Pages`;
+                    break;
+                }
+
+            default:
+                {
+                    bookInfo.innerHTML =  `${value}`; 
+                    break;
+                }
+        }
+
         card.appendChild(bookInfo);
     });
     

@@ -15,7 +15,6 @@
     display:flex;
     flex-direction: column;
     height: 100svh;
-    border: palevioletred 2px solid;
 }
 
 .addBookForm
@@ -31,6 +30,7 @@
     border-radius: 20px;
     width: 300px;
     height:400px;
+    z-index: 10;
 }
 
 #closeBtn
@@ -52,6 +52,7 @@
 .bookCard .icon
 {
     width:24px;
+    
 }
 
 .addBookForm form 
@@ -72,8 +73,13 @@
 
 .bookContainer{
     display:grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    justify-items: center;
     gap:var(--padding-margin);
+    height:100%;
+    background-color: #F6EBF4;
+    overflow-y: scroll;
+
 }
 
 .bookCard, .addBookBtn
@@ -83,10 +89,11 @@
     align-items: center;
     justify-content: space-around;
     margin:var(--padding-margin);
-    background-color:purple;
-    width: 200px;
-    height: 200px;
+    background-color: #4D9DE0;
+    width: 250px;
+    height: 300px;
     border-radius: 10px;
+    filter: drop-shadow(2px 2px 5px #000);
 }
 
 .addBookBtn
@@ -114,8 +121,9 @@
 {
     display: flex;
     align-items: center;
-    height:100px;
-    background-color: red;
+    min-height:75px;
+    background-color: #D38B5D;
+    filter: drop-shadow(1px 1px 3px #000);
 }
 
 .header button
@@ -127,7 +135,8 @@
     font-size: 1rem;
     border-radius: 7px;
     border: none;
-    background-color: #1B98E0;
+    background-color: #4D9DE0;
+    
 }
 
 .header #addBtnContainer
@@ -147,12 +156,8 @@
     display:flex;
     align-items: center;
     justify-content: center;
-    height:50px;
-    background-color: orange;
+    min-height:50px;
+    background-color: #f3f3f3;
+    filter: drop-shadow(1px 1px 3px #000);
 }
 
-.bookContainer
-{
-    height:100%;
-    background-color: rgb(192, 255, 213);
-}
