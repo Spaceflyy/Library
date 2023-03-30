@@ -5,6 +5,7 @@ let bookbtn = document.querySelector(".addBookBtn");
 let addForm = document.querySelector(".addBookForm");
 let closeBtn = document.querySelector("#closeBtn .icon");
 let bookBtnHeader = document.querySelector(".header button");
+let formBackground = document.querySelector(".formBackground");
 
 
 submitButton.addEventListener("click", () => addBookToLibrary());
@@ -46,9 +47,11 @@ function showAddMenu()
     if(addForm.style.display == "none" || addForm.style.display == "")
     {
         addForm.style.display = "block";
+        formBackground.style.display = "block";
     } else
     {
         addForm.style.display = "none";
+        formBackground.style.display = "none";
     }
 }
 
@@ -56,17 +59,22 @@ function showAddMenu()
 
 function addBookToLibrary() 
 {
-    bookbtn.style.display = "none";
+
 
     let title = document.querySelector("#title").value;
     let author= document.querySelector("#auth").value;
     let pages = document.querySelector("#pages").value;
-
     let read = document.getElementById("read").checked ? "Read" : "Not Read";
+    if (title == "" || author == "" || pages == "")
+    {
 
-    let book = new Book([title],[author],[pages],[read]);
-    myLibrary.push(book);
-    createCard(book);
+    } else
+    {
+        bookbtn.style.display = "none";
+        let book = new Book([title],[author],[pages],[read]);
+        myLibrary.push(book);
+        createCard(book);
+    }
 
 }
 
@@ -77,8 +85,13 @@ function createCard(book)
     let closeBtnParent = document.createElement("div");
     let closeBtnCard = document.createElement("IMG");
     let readIcon = document.createElement("IMG");
+    let infoContainer = document.createElement("div");
+    let line = document.createElement("div");
 
+    let bookInfo;
     // Add classes to card elements
+    infoContainer.classList.add("cardInfoContainer");
+    line.classList.add("line");
     card.classList.add("bookCard");
     closeBtnCard.classList.add("icon");
     readIcon.classList.add("icon");
@@ -105,41 +118,48 @@ function createCard(book)
     closeBtnParent.appendChild(readIcon);
     closeBtnParent.appendChild(closeBtnCard);
     card.appendChild(closeBtnParent);
+    card.appendChild(line.cloneNode(true));
 
     Object.entries(book).forEach(([key, value]) => {
-        let bookInfo;
-        if(key == "title")
-        {
-             bookInfo = document.createElement("h2");
-        } else
-        {
-             bookInfo = document.createElement("p");
-        }
 
         switch (key)
         {
+            case "title" : 
+            {
+                bookInfo = document.createElement("h1");
+                bookInfo.innerHTML =  `${value}`; 
+                infoContainer.appendChild(bookInfo);
+                break;
+            }
             case "author":
                 {
+                    bookInfo = document.createElement("h4")
                     bookInfo.innerHTML =  `By ${value}`;
+                    infoContainer.appendChild(bookInfo);
                     break;
                 }
 
             case "pages":
                 {
+                    bookInfo = document.createElement("p");
                     bookInfo.innerHTML =  ` ${value} Pages`;
+                    infoContainer.appendChild(bookInfo);
                     break;
                 }
 
             default:
                 {
+                    bookInfo = document.createElement("p");
                     bookInfo.innerHTML =  `${value}`; 
                     break;
                 }
         }
 
-        card.appendChild(bookInfo);
+
     });
-    
+    card.appendChild(infoContainer);
+    card.appendChild(line);
+    card.appendChild(bookInfo);
     appendTo.appendChild(card);
 }
 

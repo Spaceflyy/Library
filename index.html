@@ -16,28 +16,31 @@
             </div>
             <div id="addBtnContainer"><button>Add book</button></div>
         </div>
-        <div class="addBookForm">
-            <form id = "myForm" action="#" method="post">
-                <div id="closeBtn">
-                    <img class = "icon" src="./icons/close.svg" alt="close icon">
-                </div>
-                <h2>Add a new Book.</h2>
-                <label for="title">Title:
-                    <input type="text" id = "title">
-                </label>
-                <label for="auth"> Author:
-                    <input type="text" id = "auth">
-                </label>
-                <label for="pages">Number of Pages:
-                    <input type="text" id = "pages">
-                </label>
-                <label id = "subLabel" for="read">Read?
-                    <input type="checkbox" id = "read">
-                </label>
-                <label  for="subBtn">
-                    <input id = "subBtn" type="submit">
-                </label>
-            </form>
+
+        <div class="formBackground">
+            <div class="addBookForm">
+                <form id = "myForm" action="#" method="post">
+                    <div id="closeBtn">
+                        <img class = "icon" src="./icons/close.svg" alt="close icon">
+                    </div>
+                    <h2>Add a new Book.</h2>
+                    <label for="title">Title *:
+                        <input type="text" id = "title" required />
+                    </label>
+                    <label for="auth"> Author * :
+                        <input type="text" id = "auth" required />
+                    </label>
+                    <label for="pages">Number of Pages *:
+                        <input type="number" min = 0 max = 9999; id = "pages" required />
+                    </label>
+                    <label id = "subLabel" for="read">Read?
+                        <input type="checkbox" id = "read" />
+                    </label>
+                    <label  for="subBtn">
+                        <button id = "subBtn" type="submit" > Submit </button>
+                    </label>
+                </form>
+            </div>
         </div>
         
         <div class = bookContainer>
