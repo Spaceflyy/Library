@@ -76,6 +76,7 @@ function addBookToLibrary()
         createCard(book);
     }
 
+    showAddMenu();
 }
 
 function createCard(book)
