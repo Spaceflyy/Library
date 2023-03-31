@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin&display=swap');
+
 :root
 {
     --padding-margin: 1rem;
@@ -8,6 +10,7 @@
     margin: 0;
     padding: 0;
     box-sizing:border-box;
+    font-family: 'Libre Franklin', sans-serif;
 }
 
 .mainContent
@@ -50,6 +53,7 @@
     width: 100%;
     display:flex;
     justify-content: flex-end;
+    align-content: center;
     padding-right: 0.5rem;
 }
 
@@ -81,6 +85,22 @@
 .addBookForm label, input
 {
     display:block;
+    border-radius: 5px;
+    border:none;
+    height: 20px;
+    
+}
+
+.addBookForm button
+{
+    padding:0.4rem;
+    border-radius: 10px;
+    border:none;
+}
+
+.addBookForm button:active
+{
+    background-color: grey;
 }
 
 .bookContainer{
@@ -106,6 +126,16 @@
     height: 300px;
     border-radius: 5px;
     filter: drop-shadow(2px 2px 5px #000);
+}
+
+.read
+{
+    border-bottom: 15px solid #52AA5E;
+}
+
+.notRead
+{
+    border-bottom: 15px solid #BB342F;
 }
 
 .line

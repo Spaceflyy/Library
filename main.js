@@ -13,7 +13,7 @@ bookbtn.addEventListener("click", () => showAddMenu());
 bookBtnHeader.addEventListener("click", () => showAddMenu());
 closeBtn.addEventListener("click", () =>showAddMenu());
 
-form.addEventListener('submit', handleForm);
+form.addEventListener("submit", handleForm);
 
 
 let myLibrary = [];
@@ -44,6 +44,7 @@ function handleForm(event)
 
 function showAddMenu()
 {
+    form.reset();
     if(addForm.style.display == "none" || addForm.style.display == "")
     {
         addForm.style.display = "block";
@@ -75,8 +76,6 @@ function addBookToLibrary()
         myLibrary.push(book);
         createCard(book);
     }
-
-    showAddMenu();
 }
 
 function createCard(book)
@@ -102,11 +101,12 @@ function createCard(book)
     if(book.read == "Not Read")
     {  
         readIcon.setAttribute("src", "./icons/read.svg");
+        card.classList.add("notRead");
 
     } else
     {
         readIcon.setAttribute("src", "./icons/unread.svg");
-
+        card.classList.add("read");
     }
 
     
@@ -173,16 +173,19 @@ function deleteCard(e)
 
 function markAsRead(e)
 {
-    let indexOfCard =  e.target.parentNode.parentNode.getAttribute("data");
+    let indexOfCard =  e.target.parentNode.parentNode.getAttribute("data")
+    let parentCard =e.target.parentNode.parentNode;
 
     let book = myLibrary[indexOfCard];
     if(book.read == "Not Read")
     {  
         e.target.setAttribute("src", "./icons/unread.svg");
+        parentCard.classList.add("read");
+        console.log(parentCard.classList);
     } else
     {
         e.target.setAttribute("src", "./icons/read.svg");
-
+        parentCard.classList.add("notRead");
     }
 
     book.toggleRead();
