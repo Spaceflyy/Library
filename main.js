@@ -62,10 +62,11 @@ function addBookToLibrary()
 {
 
 
-    let title = document.querySelector("#title").value;
-    let author= document.querySelector("#auth").value;
+    let title = capitalizeWord(document.querySelector("#title").value);
+    let author= capitalizeWord(document.querySelector("#auth").value);
     let pages = document.querySelector("#pages").value;
     let read = document.getElementById("read").checked ? "Read" : "Not Read";
+
     if (title == "" || author == "" || pages == "")
     {
 
@@ -110,14 +111,15 @@ function createCard(book)
     }
 
     
-    closeBtnCard.setAttribute("src", "./icons/close.svg");
+    closeBtnCard.setAttribute("src", "./icons/delete.svg");
     closeBtnCard.addEventListener("click", deleteCard);
     readIcon.addEventListener("click", markAsRead);
     card.setAttribute("data", myLibrary.indexOf(book));
 
     // Append icons so they appear at the top
-    closeBtnParent.appendChild(readIcon);
     closeBtnParent.appendChild(closeBtnCard);
+    closeBtnParent.appendChild(readIcon);
+
     card.appendChild(closeBtnParent);
     card.appendChild(line.cloneNode(true));
 
@@ -127,7 +129,7 @@ function createCard(book)
         {
             case "title" : 
             {
-                bookInfo = document.createElement("h1");
+                bookInfo = document.createElement("h2");
                 bookInfo.innerHTML =  `${value}`; 
                 infoContainer.appendChild(bookInfo);
                 break;
@@ -163,6 +165,20 @@ function createCard(book)
     card.appendChild(bookInfo);
     appendTo.appendChild(card);
 }
+
+function capitalizeWord(word)
+{
+    let words = word.split(" ");
+    let newWords=[];
+    
+    words.forEach(w =>{
+        let rest = w.slice(1).toLowerCase();
+        newWords.push(w.charAt(0).toUpperCase() + rest);
+    });
+return newWords.join(" ");
+    
+}
+
 
 function deleteCard(e)
 {
