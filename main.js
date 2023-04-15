@@ -1,3 +1,5 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable no-use-before-define */
 const submitButton = document.getElementById("subBtn");
 const form = document.getElementById("myForm");
 const appendTo = document.querySelector(".bookContainer");
@@ -9,22 +11,22 @@ const formBackground = document.querySelector(".formBackground");
 
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-}
-
-Book.prototype.toggleRead = function () {
-  console.log(this.read);
-
-  if (this.read == "Not Read") {
-    this.read = "Read";
-  } else {
-    this.read = "Not Read";
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
   }
-};
+
+  toggleRead() {
+    if (this.read == "Not Read") {
+      this.read = "Read";
+    } else {
+      this.read = "Not Read";
+    }
+  }
+}
 
 function handleForm(event) {
   event.preventDefault();
@@ -47,8 +49,7 @@ function addBookToLibrary() {
   const pages = document.querySelector("#pages").value;
   const read = document.getElementById("read").checked ? "Read" : "Not Read";
 
-  if (title == "" || author == "" || pages == "") {
-  } else {
+  if (title !== "" || author !== "" || pages !== "") {
     bookbtn.style.display = "none";
     const book = new Book([title], [author], [pages], [read]);
     myLibrary.push(book);
